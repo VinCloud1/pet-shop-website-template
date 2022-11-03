@@ -1,0 +1,9 @@
+pwd;
+docker stop petshop_container || true;
+docker rm -f petshop_container || true;
+docker image  rm -f petshop2 || true;
+docker build -t petshop2 .;
+docker tag petshop2 vnom1985/petshop2;
+docker login -u vnom1985 -p abc@12345;A
+docker run -d --name petshop_container -p 140:80 vnom1985/petshop2;
+docker push vnom1985/petshop2;
